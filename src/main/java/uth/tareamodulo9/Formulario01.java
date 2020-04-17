@@ -31,9 +31,9 @@ public class Formulario01 extends javax.swing.JFrame {
     }
     //Declaracion de variables
     
-    String CuentaTemp;
-    String NombreTemp;
-    String ApellidoTemp;
+    String CuentaTemp = " ";
+    String NombreTemp = " ";
+    String ApellidoTemp = " ";
     String Carrera;
     /**
      * This method is called from within the constructor to initialize the form.
@@ -188,15 +188,30 @@ public class Formulario01 extends javax.swing.JFrame {
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
         // TODO add your handling code here:
-        String []Datos= new String[3];
-        Datos[0]=NumCuenta.getText();
-        NumCuenta.setText(null);
-        Datos[1]=Nombre.getText()+ " " + Apellido.getText();
-        Nombre.setText(null);
-        Apellido.setText(null);
-        Datos[2]=(String) CarrerasComb.getSelectedItem();
-        CarrerasComb.getSelectedItem();
-        modelo.addRow(Datos);
+        
+        if (!"".equals(NumCuenta.getText())){
+            if(!"".equals(Nombre.getText())){
+                if(!"".equals(Apellido.getText())){
+                String []Datos= new String[3];
+                Datos[0]=NumCuenta.getText();
+                NumCuenta.setText(null);
+                Datos[1]=Nombre.getText()+ " " + Apellido.getText();
+                Nombre.setText(null);
+                Apellido.setText(null);
+                Datos[2]=(String) CarrerasComb.getSelectedItem();
+                CarrerasComb.getSelectedItem();
+                modelo.addRow(Datos);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Es necesarioq que todos los campos esten llenos");
+                }
+            }
+            else{
+            JOptionPane.showMessageDialog(null, "Es necesarioq que todos los campos esten llenos");
+          }
+         } else{
+            JOptionPane.showMessageDialog(null, "Es necesarioq que todos los campos esten llenos");
+        }
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
